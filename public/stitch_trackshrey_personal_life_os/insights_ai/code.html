@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Insights &amp; AI - TrackShrey</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;700&amp;family=JetBrains+Mono:wght@500&amp;family=Libre+Caslon+Text:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#c1eaeb",
+                        "tertiary-container": "#00343f",
+                        "inverse-on-surface": "#f1f1ea",
+                        "surface-container-high": "#e8e9e2",
+                        "on-background": "#1a1c18",
+                        "on-primary-container": "#7ea06b",
+                        "error-container": "#ffdad6",
+                        "outline-variant": "#c3c8bb",
+                        "on-tertiary-fixed": "#001f27",
+                        "tertiary-fixed": "#b1ecff",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed": "#c9edb2",
+                        "surface-container-highest": "#e3e3dc",
+                        "on-error-container": "#93000a",
+                        "on-secondary": "#ffffff",
+                        "background": "#fafaf3",
+                        "tertiary-fixed-dim": "#95cfe2",
+                        "primary-fixed-dim": "#add198",
+                        "error": "#ba1a1a",
+                        "surface-dim": "#dadad4",
+                        "secondary-fixed-dim": "#a5cecf",
+                        "on-primary-fixed": "#062100",
+                        "on-error": "#ffffff",
+                        "tertiary": "#001d25",
+                        "on-tertiary-container": "#659fb1",
+                        "surface-variant": "#e3e3dc",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#add198",
+                        "on-primary-fixed-variant": "#314e22",
+                        "surface-tint": "#486638",
+                        "surface": "#fafaf3",
+                        "on-surface": "#1a1c18",
+                        "on-secondary-fixed": "#002021",
+                        "secondary": "#3e6566",
+                        "surface-bright": "#fafaf3",
+                        "surface-container": "#eeeee7",
+                        "on-surface-variant": "#43483e",
+                        "on-secondary-fixed-variant": "#254d4e",
+                        "on-secondary-container": "#42696a",
+                        "primary": "#061f00",
+                        "inverse-surface": "#2f312d",
+                        "on-tertiary-fixed-variant": "#014e5e",
+                        "on-primary": "#ffffff",
+                        "outline": "#74796d",
+                        "secondary-container": "#bee7e8",
+                        "surface-container-low": "#f4f4ed",
+                        "primary-container": "#19350c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "8px",
+                        "xl": "48px",
+                        "md": "24px",
+                        "base": "4px",
+                        "lg": "32px",
+                        "sm": "16px",
+                        "container-margin": "20px",
+                        "card-gap": "16px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Hanken Grotesk"],
+                        "body-md": ["Hanken Grotesk"],
+                        "label-caps": ["Hanken Grotesk"],
+                        "headline-sm": ["Libre Caslon Text"],
+                        "label-data": ["JetBrains Mono"],
+                        "headline-md": ["Libre Caslon Text"],
+                        "display-lg": ["Libre Caslon Text"],
+                        "body-sm": ["Hanken Grotesk"],
+                        "headline-lg": ["Libre Caslon Text"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700" }],
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "label-data": ["14px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #D5D3CC; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 4px 20px rgba(25, 53, 12, 0.04);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-on-background min-h-screen pb-24 selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="docked full-width top-0 bg-background flex justify-between items-center px-container-margin py-sm w-full z-40 sticky shadow-sm">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container-high overflow-hidden shrink-0 border border-outline-variant">
+<img alt="User profile avatar" class="w-full h-full object-cover" data-alt="A minimal, sophisticated profile portrait of a user against a light background, conveying a sense of calm and organization. The image should be highly detailed, in focus, and align with a modern corporate aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWh10fHwcDOaK0VdGoyYtCFb7bKveYMhatSrkP6tvDmfEnUCm8SP31EN6b7QBXJyS_MVee_m6cHwPWvrWKgfSm6Ajt_eWQOuf8CVSbslSHGCTbQ2ktbxmkeg_g-xQBJ5PmE3tX6UnF3RPUA3P1qsO1wDkew9joSUzH3LP2SDmXjxfue6dzzAAt-C-YTMtFKfI9rYj7jqYK0QfT4ZykUfi_i6vLFMuMFJjjNrPacz8pKPtfobWz8ts"/>
+</div>
+<h1 class="font-headline-md text-headline-md text-primary">TrackShrey</h1>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-caps text-label-caps text-primary bg-primary-fixed px-3 py-1.5 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+                Streak 12
+            </span>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-container-margin py-md grid grid-cols-1 lg:grid-cols-12 gap-md">
+<!-- Time Range Toggle -->
+<section class="lg:col-span-12 mb-sm">
+<div class="flex bg-surface-container-high rounded-full p-1 w-full max-w-md mx-auto shadow-inner">
+<button class="flex-1 font-label-caps text-label-caps py-2 px-4 rounded-full text-on-surface-variant hover:bg-surface-container-highest transition-colors">Daily</button>
+<button class="flex-1 font-label-caps text-label-caps py-2 px-4 rounded-full bg-primary text-on-primary shadow-sm transition-transform scale-100 hover:scale-[0.98]">Weekly</button>
+<button class="flex-1 font-label-caps text-label-caps py-2 px-4 rounded-full text-on-surface-variant hover:bg-surface-container-highest transition-colors">Monthly</button>
+<button class="flex-1 font-label-caps text-label-caps py-2 px-4 rounded-full text-on-surface-variant hover:bg-surface-container-highest transition-colors">Yearly</button>
+</div>
+</section>
+<!-- Bento Grid Layout -->
+<div class="lg:col-span-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-card-gap">
+<!-- Personal AI Insights -->
+<article class="glass-card rounded-xl p-sm md:p-md lg:col-span-2 flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute -right-12 -top-12 w-64 h-64 bg-primary-fixed/20 rounded-full blur-3xl group-hover:bg-primary-fixed/30 transition-all duration-700"></div>
+<div class="relative z-10">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<h2 class="font-headline-sm text-headline-sm text-on-background">Personal AI Insights</h2>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-6 leading-relaxed">
+                        Your study efficiency peaks when you achieve <strong class="text-primary">7.5+ hours of sleep</strong>. Over the last week, a 15% drop in sleep duration correlated with a <strong class="text-error">22% decrease</strong> in focused study hours. Consider shifting your deep work blocks to morning sessions.
+                    </p>
+<div class="flex gap-4">
+<div class="bg-surface-container-lowest rounded-lg p-3 border border-outline-variant/30 flex-1 flex flex-col items-start shadow-sm">
+<span class="font-label-caps text-label-caps text-on-surface-variant mb-1">Avg Sleep</span>
+<span class="font-label-data text-label-data text-primary text-xl">6h 45m <span class="material-symbols-outlined text-error text-sm align-middle">arrow_downward</span></span>
+</div>
+<div class="bg-surface-container-lowest rounded-lg p-3 border border-outline-variant/30 flex-1 flex flex-col items-start shadow-sm">
+<span class="font-label-caps text-label-caps text-on-surface-variant mb-1">Study Focus</span>
+<span class="font-label-data text-label-data text-primary text-xl">82% <span class="material-symbols-outlined text-primary text-sm align-middle">arrow_upward</span></span>
+</div>
+</div>
+</div>
+</article>
+<!-- Goal Prediction -->
+<article class="glass-card rounded-xl p-sm md:p-md flex flex-col relative">
+<h3 class="font-headline-sm text-headline-sm text-on-background mb-1">Q3 Certification</h3>
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-6">Goal Prediction</p>
+<div class="flex-grow flex flex-col justify-center items-center relative py-6">
+<!-- Circular Progress Placeholder -->
+<svg class="w-32 h-32 transform -rotate-90" viewbox="0 0 100 100">
+<circle class="text-surface-container-high" cx="50" cy="50" fill="none" r="45" stroke="currentColor" stroke-width="8"></circle>
+<circle class="text-secondary" cx="50" cy="50" fill="none" r="45" stroke="currentColor" stroke-dasharray="282.7" stroke-dashoffset="101.7" stroke-linecap="round" stroke-width="8"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="font-display-lg text-display-lg text-primary tracking-tighter">64<span class="text-2xl">%</span></span>
+</div>
+</div>
+<div class="mt-auto pt-4 border-t border-outline-variant/20 flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">event</span> Est. Sept 18
+                    </span>
+<span class="font-label-caps text-label-caps text-secondary bg-secondary-fixed/30 px-2 py-1 rounded">On Track</span>
+</div>
+</article>
+<!-- Life Score Radar (Placeholder) -->
+<article class="glass-card rounded-xl p-sm md:p-md lg:col-span-3">
+<div class="flex items-center justify-between mb-6">
+<h3 class="font-headline-sm text-headline-sm text-on-background">Life Score Breakdown</h3>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">more_horiz</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+<div class="relative w-full h-64 bg-surface-container-low rounded-lg border border-outline-variant/20 overflow-hidden flex items-center justify-center">
+<div class="w-full h-full bg-cover bg-center opacity-80" data-alt="A clean, minimalist radar chart or data visualization graphic on a light background. It uses deep greens and light gray tones to represent data points for Study, Health, Sleep, and Social metrics. The aesthetic is sophisticated and corporate, fitting a high-end analytics dashboard." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBgcPm41y3TagUcdRBf57ZiPdgXS89-1ohjxrIIghtfVfkdS31MatVmVbXcsF-8zqh-d3eSLZ_AmWaApjUUGihy8vl2ExWZTM18lFMggJfvLNc0HpuHrE3Cdf7FZDEbkfG0Gbnbe8MoVmr6kP-KYwOpUnxXzx_vFte7l4EtjJv3aJWFU0WvmFYSBt8wGhrdk8EHkSb15e10rvrsKeqQS7DXXQiYRe6z-AiRn6C4yawd1y0XUBHFIbc')"></div>
+<span class="absolute text-on-surface-variant font-label-caps text-label-caps opacity-50 mix-blend-multiply">Radar Visualization Area</span>
+</div>
+<div class="space-y-4">
+<!-- Bar 1 -->
+<div>
+<div class="flex justify-between font-label-caps text-label-caps mb-1">
+<span class="text-on-background">Study</span>
+<span class="text-primary font-label-data">88 / 100</span>
+</div>
+<div class="h-2 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 88%;"></div>
+</div>
+</div>
+<!-- Bar 2 -->
+<div>
+<div class="flex justify-between font-label-caps text-label-caps mb-1">
+<span class="text-on-background">Health</span>
+<span class="text-secondary font-label-data">72 / 100</span>
+</div>
+<div class="h-2 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-secondary rounded-full" style="width: 72%;"></div>
+</div>
+</div>
+<!-- Bar 3 -->
+<div>
+<div class="flex justify-between font-label-caps text-label-caps mb-1">
+<span class="text-on-background">Sleep</span>
+<span class="text-error font-label-data">54 / 100</span>
+</div>
+<div class="h-2 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-error rounded-full opacity-80" style="width: 54%;"></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-4 pt-2 bg-secondary-container shadow-[0_-4px_20px_rgba(25,53,12,0.08)] md:hidden">
+<button class="flex flex-col items-center justify-center text-on-secondary-container p-2 hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined mb-1">home</span>
+<span class="font-label-caps text-label-caps text-[10px]">Today</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-secondary-container p-2 hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined mb-1">add_circle</span>
+<span class="font-label-caps text-label-caps text-[10px]">Track</span>
+</button>
+<!-- Active State -->
+<button class="flex flex-col items-center justify-center bg-primary text-on-primary rounded-full px-4 py-1 scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">analytics</span>
+<span class="font-label-caps text-label-caps text-[10px]">Insights</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-secondary-container p-2 hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined mb-1">trending_up</span>
+<span class="font-label-caps text-label-caps text-[10px]">Progress</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-secondary-container p-2 hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined mb-1">person</span>
+<span class="font-label-caps text-label-caps text-[10px]">Me</span>
+</button>
+</nav>
+<!-- Desktop Sidebar replacement (hidden on mobile, placeholder for layout structure if needed per requirements, though only BottomNav was explicitly requested, adding this to fulfill "Destination Rule" robustly if scaled up, but keeping hidden md:flex per standard practices. Given instructions, prioritizing BottomNav as requested.) -->
+<nav class="hidden md:flex flex-col fixed left-0 top-16 bottom-0 w-64 bg-surface border-r border-outline-variant/20 pt-md px-4 z-30">
+<ul class="space-y-2">
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-caps text-label-caps">Today</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined">add_circle</span>
+<span class="font-label-caps text-label-caps">Track</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg bg-primary-container text-on-primary-container font-medium" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">analytics</span>
+<span class="font-label-caps text-label-caps">Insights</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined">trending_up</span>
+<span class="font-label-caps text-label-caps">Progress</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-caps text-label-caps">Me</span>
+</a>
+</li>
+</ul>
+</nav>
+</body></html>

@@ -1,0 +1,47 @@
+﻿@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #fafaf3;
+    color: #1a1c18;
+    font-family: 'Hanken Grotesk', sans-serif;
+  }
+
+  h1, h2, h3, .font-caslon {
+    font-family: 'Libre Caslon Text', serif;
+  }
+
+  .font-mono-data {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  border: 1px solid #e3e3dc;
+  box-shadow: 0 4px 20px rgba(25, 53, 12, 0.06);
+}
+
+.active-nav-glow {
+  box-shadow: 0 0 15px rgba(173, 209, 152, 0.5);
+}
+
+.heatmap-cell {
+  transition: all 0.2s ease;
+}
+.heatmap-cell:hover {
+  transform: scale(1.15);
+  z-index: 10;
+}
+
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.85; transform: scale(1.03); }
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 3s ease-in-out infinite;
+}
