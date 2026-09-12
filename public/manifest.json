@@ -1,0 +1,18 @@
+{
+  "name": "Traciiee — Life Operating System",
+  "short_name": "Traciiee",
+  "description": "My Personal Life Operating System",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fafaf3",
+  "theme_color": "#19350c",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/college_assets/shreyas.jpg",
+      "sizes": "192x192 512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ]
+}
