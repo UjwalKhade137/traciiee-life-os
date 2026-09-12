@@ -1,4 +1,4 @@
-﻿export const initialUserData = {
+export const initialUserData = {
   profile: {
     name: 'Shreyas',
     email: '',
@@ -171,6 +171,79 @@
     workouts: [
       { id: 'w1', date: '2026-09-10', type: 'Weight Training (Chest/Triceps)', durationMin: 55, calories: 420 },
       { id: 'w2', date: '2026-09-08', type: 'Morning Outdoor 5K Run', durationMin: 28, calories: 310 }
+    ]
+  },
+  gymStreak: {
+    currentStreak: 12,
+    bestStreak: 16,
+    totalWorkouts: 48,
+    lastCompletedDate: '2026-09-11',
+    activeChallengeId: 'c30',
+    challenges: [
+      {
+        id: 'c7',
+        name: '7-Day Starter Challenge',
+        icon: 'local_fire_department',
+        durationDays: 7,
+        daysCompleted: 7,
+        badge: 'Starter Flame',
+        badgeDesc: 'Completed 7 consecutive gym sessions',
+        xpReward: 200,
+        completed: true
+      },
+      {
+        id: 'c14',
+        name: '14-Day Consistency Challenge',
+        icon: 'fitness_center',
+        durationDays: 14,
+        daysCompleted: 12,
+        badge: 'Iron Discipline',
+        badgeDesc: 'Built a 2-week daily workout habit',
+        xpReward: 400,
+        completed: false
+      },
+      {
+        id: 'c30',
+        name: '30-Day Gym Streak',
+        icon: 'military_tech',
+        durationDays: 30,
+        daysCompleted: 12,
+        badge: 'Gym Warrior',
+        badgeDesc: '30 days of unbroken gym consistency',
+        xpReward: 1000,
+        completed: false
+      },
+      {
+        id: 'c60',
+        name: '60-Day Fitness Challenge',
+        icon: 'rocket_launch',
+        durationDays: 60,
+        daysCompleted: 12,
+        badge: 'Titan Athlete',
+        badgeDesc: '60 days transformation powerhouse',
+        xpReward: 2500,
+        completed: false
+      },
+      {
+        id: 'c100',
+        name: '100-Day Elite Challenge',
+        icon: 'workspace_premium',
+        durationDays: 100,
+        daysCompleted: 12,
+        badge: 'Centurion Legend',
+        badgeDesc: '100 days of relentless gym mastery',
+        xpReward: 5000,
+        completed: false
+      }
+    ],
+    weeklyHistory: [
+      { day: 'M', date: '2026-09-07', completed: true, workoutType: 'Push (Chest & Triceps)' },
+      { day: 'T', date: '2026-09-08', completed: true, workoutType: '5K Run & Core' },
+      { day: 'W', date: '2026-09-09', completed: true, workoutType: 'Pull (Back & Biceps)' },
+      { day: 'T', date: '2026-09-10', completed: true, workoutType: 'Legs & Calves' },
+      { day: 'F', date: '2026-09-11', completed: true, workoutType: 'Shoulders & HIIT' },
+      { day: 'S', date: '2026-09-12', completed: false, workoutType: null },
+      { day: 'S', date: '2026-09-13', completed: false, workoutType: null }
     ]
   },
   sleep: {

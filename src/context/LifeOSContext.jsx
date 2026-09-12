@@ -21,6 +21,7 @@ export const LifeOSProvider = ({ children }) => {
   const [quickLogModal, setQuickLogModal] = useState(null); // 'study' | 'workout' | 'sleep' | 'mood' | 'water' | 'food' | 'screen' | 'expense' | null
   const [showUpgradeModal, setShowUpgradeModal] = useState(false);
   const [showLifeWrapped, setShowLifeWrapped] = useState(false);
+  const [showGymStreakModal, setShowGymStreakModal] = useState(false);
   const [deviceFrameMode, setDeviceFrameMode] = useState('phone'); // 'phone' | 'fluid'
 
   useEffect(() => {
@@ -273,6 +274,125 @@ export const LifeOSProvider = ({ children }) => {
     }));
     logActivity('Workout completed', 30);
     setQuickLogModal(null);
+  };
+
+  const completeGymWorkout = (workoutData = {}) => {
+    const today = new Date();
+    const todayStr = today.toISOString().split('T')[0];
+    
+    // Yesterday date string
+    const yesterday = new Date(today);
+    yesterday.setDate(yesterday.getDate() - 1);
+    const yesterdayStr = yesterday.toISOString().split('T')[0];
+
+    // Day of week index for Mon-Sun: Mon=0, Tue=1, ..., Sun=6
+    const dayOfWeek = today.getDay();
+    const historyIndex = dayOfWeek === 0 ? 6 : dayOfWeek - 1;
+
+    let reachedMilestone = false;
+    let milestoneBadge = '';
+
+    setData(prev => {
+      const currentGym = prev.gymStreak || initialUserData.gymStreak;
+      const alreadyCompletedToday = currentGym.lastCompletedDate === todayStr;
+
+      let newStreak = currentGym.currentStreak;
+      if (!alreadyCompletedToday) {
+        if (currentGym.lastCompletedDate === yesterdayStr) {
+          newStreak = currentGym.currentStreak + 1;
+        } else {
+          newStreak = 1;
+        }
+      }
+
+      const newBestStreak = Math.max(currentGym.bestStreak || 0, newStreak);
+      const newTotalWorkouts = (currentGym.totalWorkouts || 0) + 1;
+
+      // Update weekly calendar
+      const updatedWeekly = (currentGym.weeklyHistory || initialUserData.gymStreak.weeklyHistory).map((w, idx) => {
+        if (idx === historyIndex) {
+          return {
+            ...w,
+            completed: true,
+            date: todayStr,
+            workoutType: workoutData.type || 'Gym Workout'
+          };
+        }
+        return w;
+      });
+
+      // Update challenges
+      const updatedChallenges = currentGym.challenges.map(ch => {
+        const isCurrentActive = ch.id === currentGym.activeChallengeId;
+        const nextDaysCompleted = !alreadyCompletedToday
+          ? Math.min(ch.durationDays, ch.daysCompleted + 1)
+          : ch.daysCompleted;
+        const isNowCompleted = nextDaysCompleted >= ch.durationDays;
+
+        if (isCurrentActive && isNowCompleted && !ch.completed) {
+          reachedMilestone = true;
+          milestoneBadge = ch.badge;
+        }
+
+        return {
+          ...ch,
+          daysCompleted: nextDaysCompleted,
+          completed: isNowCompleted || ch.completed
+        };
+      });
+
+      // Also append to fitness workouts
+      const newSession = {
+        id: 'w-' + Date.now(),
+        date: todayStr,
+        type: workoutData.type || 'Gym Workout',
+        durationMin: Number(workoutData.durationMin) || 50,
+        calories: Number(workoutData.calories) || 380,
+        notes: workoutData.notes || ''
+      };
+
+      const updatedFitnessWorkouts = [newSession, ...(prev.fitness?.workouts || [])];
+
+      return {
+        ...prev,
+        fitness: {
+          ...prev.fitness,
+          stepsToday: (prev.fitness?.stepsToday || 6840) + 2000,
+          workouts: updatedFitnessWorkouts
+        },
+        gymStreak: {
+          ...currentGym,
+          currentStreak: newStreak,
+          bestStreak: newBestStreak,
+          totalWorkouts: newTotalWorkouts,
+          lastCompletedDate: todayStr,
+          challenges: updatedChallenges,
+          weeklyHistory: updatedWeekly
+        }
+      };
+    });
+
+    logActivity('Workout completed', 35);
+
+    if (reachedMilestone) {
+      try {
+        confetti({
+          particleCount: 150,
+          spread: 80,
+          origin: { y: 0.6 }
+        });
+      } catch (e) {}
+    }
+  };
+
+  const setActiveGymChallenge = (challengeId) => {
+    setData(prev => ({
+      ...prev,
+      gymStreak: {
+        ...(prev.gymStreak || initialUserData.gymStreak),
+        activeChallengeId: challengeId
+      }
+    }));
   };
 
   const quickLogSleep = (hours, quality) => {
@@ -599,6 +719,8 @@ export const LifeOSProvider = ({ children }) => {
         setShowUpgradeModal,
         showLifeWrapped,
         setShowLifeWrapped,
+        showGymStreakModal,
+        setShowGymStreakModal,
         deviceFrameMode,
         setDeviceFrameMode,
         continueAsGuest,
@@ -609,6 +731,8 @@ export const LifeOSProvider = ({ children }) => {
         addGoal,
         quickLogStudy,
         quickLogWorkout,
+        completeGymWorkout,
+        setActiveGymChallenge,
         quickLogSleep,
         quickLogMood,
         quickLogWater,

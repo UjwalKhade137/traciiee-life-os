@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useLifeOS } from '../../context/LifeOSContext';
+import { GymStreakCard } from './GymStreakCard';
 
 export const TodayDashboard = () => {
   const {
@@ -179,6 +180,9 @@ export const TodayDashboard = () => {
           </div>
         </div>
       </section>
+
+      {/* Gym Streak Challenge Card */}
+      <GymStreakCard />
 
       {/* Habits Today Checklist */}
       <section className="bg-surface-container-lowest rounded-xl p-4 shadow-[0_4px_20px_rgba(25,53,12,0.06)] border border-surface-variant">

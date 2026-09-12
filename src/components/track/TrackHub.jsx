@@ -5,7 +5,7 @@ import { CollegeEventsModal } from './CollegeEventsModal';
 import { StudentAcademicModal } from './StudentAcademicModal';
 
 export const TrackHub = () => {
-  const { data, setQuickLogModal, toggleRoutine } = useLifeOS();
+  const { data, setQuickLogModal, toggleRoutine, setShowGymStreakModal } = useLifeOS();
 
   const [showPomodoro, setShowPomodoro] = useState(false);
   const [showCollegeEvents, setShowCollegeEvents] = useState(false);
@@ -158,16 +158,16 @@ export const TrackHub = () => {
           <p className="font-mono-data text-xs text-amber-800 font-bold">25m Pomodoro</p>
         </button>
 
-        {/* Card 5: Fitness */}
+        {/* Card 5: Gym Streak & Fitness */}
         <button
-          onClick={() => setQuickLogModal('workout')}
+          onClick={() => setShowGymStreakModal(true)}
           className="flex flex-col bg-surface-container-lowest border border-outline-variant/60 rounded-2xl p-4 shadow-[0_4px_20px_rgba(25,53,12,0.04)] hover:shadow-organic hover:-translate-y-0.5 transition-all text-left group"
         >
           <div className="w-10 h-10 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center mb-3 group-hover:scale-105 transition-transform">
             <span className="material-symbols-outlined text-xl">fitness_center</span>
           </div>
-          <h4 className="font-headline-sm text-sm md:text-base font-bold text-on-surface mb-0.5">Fitness</h4>
-          <p className="font-mono-data text-xs text-secondary font-bold">{data.fitness.stepsToday} steps</p>
+          <h4 className="font-headline-sm text-sm md:text-base font-bold text-on-surface mb-0.5">Gym Streak</h4>
+          <p className="font-mono-data text-xs text-secondary font-bold">🔥 {data.gymStreak?.currentStreak || 12}d • {data.fitness.stepsToday} steps</p>
         </button>
 
         {/* Card 6: Sleep */}

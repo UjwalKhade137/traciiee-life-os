@@ -11,6 +11,7 @@ import { MeHub } from './components/me/MeHub';
 import { QuickLogModal } from './components/modals/QuickLogModal';
 import { AuthModal } from './components/auth/AuthModal';
 import { LifeWrappedModal } from './components/modals/LifeWrappedModal';
+import { GymStreakModal } from './components/modals/GymStreakModal';
 import { OnboardingView } from './components/auth/OnboardingView';
 
 const MainShell = () => {
@@ -44,6 +45,7 @@ const MainShell = () => {
       <QuickLogModal />
       <AuthModal />
       <LifeWrappedModal />
+      <GymStreakModal />
     </DeviceFrame>
   );
 };
